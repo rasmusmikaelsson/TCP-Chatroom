@@ -1,0 +1,6 @@
+# Executable
+tcp-server
+tcp-client
+
+# Compiled object files
+*.o
