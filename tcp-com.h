@@ -1,5 +1,5 @@
-#ifndef TCP_CHAT_H
-#define TCP_CHAT_H
+#ifndef TCP_COM_H
+#define TCP_COM_H
 
 #include <errno.h>
 #include <stdio.h>
