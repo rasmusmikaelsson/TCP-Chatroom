@@ -48,6 +48,12 @@ Open another terminal and run: `./tcp-client <server-ip> <port>`. Replace `<serv
 
 Once the connection is established, messages can be exchanged between the server and client through their respective terminals.
 
+### Clean up
+When done, simply run: `make clean`, to clean up workspace. This will remove:
+
+- tcp-client.o and corresponding executable tcp-client.
+- tcp-server.o and corresponding executable tcp-server. 
+
 ## Current Limitations
 - The application is primarily designed for communication between one server and one client.
 - Multiple client connections are not fully supported.
