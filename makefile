@@ -14,10 +14,10 @@ tcp-server: tcp-server.o
 tcp-client: tcp-client.o
 	$(CC) -o tcp-client tcp-client.o
 
-tcp-server.o: tcp-server.c tcp-chat.h
+tcp-server.o: tcp-server.c tcp-com.h
 	$(CC) $(CFLAGS) -c tcp-server.c
 
-tcp-client.o: tcp-client.c tcp-chat.h
+tcp-client.o: tcp-client.c tcp-com.h
 	$(CC) $(CFLAGS) -c tcp-client.c
 
 clean: 

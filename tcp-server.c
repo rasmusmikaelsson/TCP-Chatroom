@@ -6,24 +6,20 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#include "tcp-chat.h"
-
-/* ------------------ Declarations of internal functions ------------------ */
+#include "tcp-com.h"
 
 static void perror_exit(const char *msg);
 
-/* -------------------------- External functions -------------------------- */
-
 int main(int argc, char* argv[]){
 
-	/* Port for the server to listen on */
+	// Port for the server to listen on
 	int listen_port;
 	if(argc!=2 || sscanf(argv[1], "%d", &listen_port)!=1){
 		fprintf(stderr, "Usage: %s <port>\n", argv[0]);
 		return 1;
 	}
 
-	/* Create a socket for IPv4 TCP*/
+	// Create a socket for IPv4 TCP
 	int server_socket = socket(AF_INET,	SOCK_STREAM, 0);
 	if(server_socket < 0){
 		perror_exit("socket()");
@@ -37,7 +33,7 @@ int main(int argc, char* argv[]){
 		    perror_exit("setsockopt(reuseaddr)");
 	}
 
-	/* Bind socket to port 'listen_port' */
+	// Bind socket to port 'listen_port'
 	struct sockaddr_in addr={0}; //init fields to zero
 	addr.sin_family = AF_INET; //the address is ipv4
 	addr.sin_addr.s_addr = INADDR_ANY; //use any address, eg. 0.0.0.0 for ipv4
@@ -74,8 +70,6 @@ int main(int argc, char* argv[]){
 	close(server_socket);
 	return result == -1 ? 1 : 0;
 }
-
-/* -------------------------- Internal functions -------------------------- */
 
 /* Convenience function for error handling */
 static void perror_exit(const char *msg){
